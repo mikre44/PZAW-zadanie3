@@ -1,0 +1,30 @@
+
+<form action="/<%=category.id%>/new" method="POST">
+  <div>
+    <input
+      type="text"
+      name="name"
+      id="card_name"
+      class="new-card-input"
+      required
+      minlength="1"
+      maxlength="500"
+      placeholder="name"
+    />
+  </div>
+  <div>
+    <input
+      type="text"
+      name="link"
+      id="card_link"
+      class="new-card-input"
+      required
+      minlength="1"
+      maxlength="500"
+      placeholder="link to the site"
+    />
+  </div>
+  <div>
+    <button class="new-card-input">Submit</button>
+  </div>
+</form>

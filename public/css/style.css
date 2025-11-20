@@ -1,0 +1,225 @@
+html {
+    background-color: rgb(0, 0, 0);
+    font-family: Arial, sans-serif;    
+    font-size: 11pt;
+    color: rgb(255, 255, 255);
+    resize: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+}
+
+main {
+    width: 100%;
+    height: fit-content;
+    min-height: 98vh;
+    background-color: rgba(87, 68, 68, 0.5);
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10vh rgba(2, 0, 109, 0.582);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../images/main-background.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+
+}   
+
+
+
+
+.main-header{
+    color: rgb(219, 219, 219);
+    text-shadow: 0rem 0rem 0.2rem white;
+    transition-duration: 0.2s;
+}
+.main-header:hover{
+    text-shadow: 0rem 0rem 0.5rem white;
+}
+
+.card-container{
+
+    display: flex;
+    flex-direction: row;
+    gap: 20%;
+}
+.card-container > div > a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+}
+.card-container > div > div{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: rgb(219, 219, 219);
+    
+}
+.card-container > div{
+    width: 28rem;
+    height: 35rem;
+    border-radius: 1rem;
+    background-color: rgba(44, 44, 44, 0.1);
+    backdrop-filter: blur(10px);
+    transition-duration: 0.5s;
+}
+
+.card-container > div:hover {
+    width: 32rem; 
+    height: 38rem;
+    background-color: rgba(44, 44, 44, 0.1);
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3); 
+}
+
+
+.card-container:has(.card1:hover) .card2 {
+    width: 21rem;
+    height: 30rem;
+    background-color: rgba(44, 44, 44, 0.05);
+    margin-top: 2rem;
+}
+
+.card-container:has(.card2:hover) .card1 {
+    width: 21rem;
+    height: 30rem;
+    background-color: rgba(54, 38, 38, 0.05);
+    margin-top: 2rem;
+
+}
+
+.card-container:has(.card1:hover) .card-container {
+    margin-right: 5rem;
+}
+
+
+.card-grid {
+    width: 80%;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20rem);
+    gap: 30px;
+    margin: 40px 0;
+    margin-top: 100px;
+
+}
+
+
+.card {
+
+    display: flex;
+    flex-direction: column;
+    height: 14rem;
+    background: rgba(9, 8, 44, 0.1);
+    border-radius: 18px;
+    padding: 30px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+    transition-duration: 0.25s;
+    text-align: center;
+    text-shadow: 0rem 0rem 0.1rem white;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.55);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: rgb(219, 219, 219);
+    font-size: 1.2rem;
+}
+.card > h3:nth-child(2){
+    color: rgb(9, 157, 202);
+}
+
+.card a {
+    margin-top: auto;
+    padding: 10px 14px;
+    background: rgba(30, 60, 100, 0.7);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition-duration: 0.2s;
+}
+
+.card a:hover {
+    background: rgba(45, 90, 150, 0.5);
+    transform: scale(1.03);
+}
+
+
+.new-card-section {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    height: 14rem;
+    width: 20rem;
+    background: rgba(9, 8, 44, 0.1);
+    border-radius: 18px;
+    padding: 30px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+    transition-duration: 0.25s;
+    text-align: center;
+    text-shadow: 0rem 0rem 0.1rem white;
+}
+
+.new-card-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.55);
+}
+
+.new-card-input{
+    margin-top: auto;
+    margin-bottom: 5px;
+    padding: 10px 14px;
+    background-color: rgba(41, 81, 134, 0.7);
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    border: 0;
+    font-weight: 1000;
+    transition-duration: 0.2s;
+    
+}
+.new-card-input:hover{
+    background: rgba(45, 90, 150, 0.5);
+    transform: scale(1.1);
+}
+
+.new-card-input::placeholder{
+    color: rgb(202, 202, 202);
+}
+
+.back{
+    position: absolute;
+    top: 2vh;
+    left: 2vh;
+    padding: 10px 14px;
+    background-color: rgba(16, 32, 54, 0.527);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 10px;
+    transition-duration: 0.2s;
+}
+
+.back:hover{
+    transform: translateY(-5px);
+    background-color: rgba(16, 32, 54, 0.822);;
+}
