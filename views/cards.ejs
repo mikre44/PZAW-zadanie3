@@ -2,17 +2,18 @@
 
 <main>
   <h1 class="main-header"><%= title %></h1>
-
-  <div class="card-grid">
-    <% category.link.forEach(function(card){ %>
-      <div class="card">
-        <h3><%= card.name %></h3>
-        <h3><%= card.link %></h3>
-        <a href="<%= card.link %>" target="_blank">Go</a>
-      </div>
-    <% }) %>
-  </div>
-
+  <form action="<%= title %>/delete" method="POST" class="main-form">
+    <div class="card-grid">
+      <% category.link.forEach(function(card){ %>
+        <div class="card">
+          <h3><%= card.name %></h3>
+          <h3><%= card.link %></h3>
+          <a href="<%= card.link %>" target="_blank">Go</a>
+          <button type="submit" name="delete_id" value="<%= card.id %>" class="delete">DELETE</button>
+        </div>
+      <% }) %>
+    </div>
+  </form>
   <div class="new-card-section">
     <h3>Add new</h3>
     <%- include("forms/new_card.ejs") %>

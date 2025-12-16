@@ -1,5 +1,6 @@
 import express from "express";
 import categories from "./models/categories.js";
+import morgan from "morgan";
 
 
 const port = 8000;
@@ -8,12 +9,13 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded());
+app.use(morgan("dev"));
 
 
 
 
 app.get("/sites", (req, res) => {
-  const category = categories.getCategory('sites');
+  const category = categories.getCards('sites');
   if (category != null) {
     res.render("cards", {
       id: category.id,
@@ -26,9 +28,10 @@ app.get("/sites", (req, res) => {
 });
 
 app.get("/games", (req, res) => {
-  const category = categories.getCategory('games');
+  const category = categories.getCards('games');
   if (category != null) {
     res.render("cards", {
+      id: category.id,
       title: category.title,
       category,
     });
@@ -41,7 +44,7 @@ app.post("/:category_id/new", (req, res) => {
   
 
   const category_id = req.params.category_id;
-  if (!categories.hasCategory(category_id)) {
+  if (!categories.hasCard(category_id)) {
     res.sendStatus(404);
   } else {
     categories.addComponent(category_id, {
@@ -51,6 +54,18 @@ app.post("/:category_id/new", (req, res) => {
     res.redirect(`/${category_id}`);
   }
 });
+
+app.post("/:category_id/delete", (req, res) => {
+
+  const delete_id = req.body.delete_id;
+  const category_id = req.params.category_id;
+
+  categories.deleteComponent(delete_id);
+  res.redirect(`/${category_id}`);
+  
+});
+
+
 app.get("/:card_link", (req, res) => {
     const card_link = req.params.card_link;
   if (card_link) {
